@@ -16,11 +16,11 @@ public class ShowController {
     @Autowired
     ShowService showService;
 
-       @PostMapping("add")
-    public ResponseEntity<String> addShow(@RequestBody ShowEntryDto showEntryDto){
-
-           return new ResponseEntity<>();
-
-       }
+//       @PostMapping("add")
+//    public ResponseEntity<String> addShow(@RequestBody ShowEntryDto showEntryDto){
+//
+//           return new ResponseEntity<>();
+//
+//       }
 
 }

@@ -67,8 +67,8 @@ public class TicketService {
 
         // We need to set that string that talked about requested seats
 
-       // String allotedSeats = getAllotedSeatsFromShowSeats(seatEntityList);
-
+       String allotedSeats = getAllotedSeatsFromShowSeats(requestedSeats);
+        ticketEntity.setBookedSeats(allotedSeats);
 
         //Setting the foreign key attributes
         UserEntity userEntity = userRepository.findById(ticketEntryDto.getUserID()).get();
@@ -93,7 +93,13 @@ public class TicketService {
         return "Ticket has been successfully added";
     }
 
-  //  private String getAllotedSeatsFromShowSeats(List<>) =
+    private String getAllotedSeatsFromShowSeats(List<String> requestedSeats) {
+        String result = "";
+        for(String seat : requestedSeats){
+            result = result + seat +", ";
+        }
+        return result;
+    }
 
     private boolean checkValidityOfRequestedSeats(TicketEntryDto ticketEntryDto){
 
@@ -117,6 +123,7 @@ public class TicketService {
             }
 
         }
+        // all seats are available and valid
         return true;
     }
 }
